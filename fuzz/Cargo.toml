@@ -1,0 +1,29 @@
+[package]
+name = "tsz-codec-fuzz"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+# Its own workspace, so the library keeps no dependencies.
+[workspace]
+
+[dependencies]
+libfuzzer-sys = "0.4"
+tsz-codec = { path = ".." }
+
+[[bin]]
+name = "decode"
+path = "fuzz_targets/decode.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "roundtrip"
+path = "fuzz_targets/roundtrip.rs"
+test = false
+doc = false
+bench = false

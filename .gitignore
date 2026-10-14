@@ -1,0 +1,8 @@
+target/
+bench/target/
+fuzz/target/
+fuzz/corpus/
+fuzz/artifacts/
+*.tsz
+fuzz/*.log
+data/*.csv

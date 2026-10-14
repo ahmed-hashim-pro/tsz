@@ -1,0 +1,59 @@
+{
+  "note": "bytes are deterministic; mpts (millions of points per second) depend on the machine",
+  "datasets": [
+    {"name": "noaa-sf-air-temp", "points": 87637, "csv_gz_bytes": 315467, "methods": [
+      {"method": "zstd", "bytes": 249541, "bits_per_point": 22.780, "encode_mpts": 24.3, "decode_mpts": 47.2},
+      {"method": "tsz crate", "bytes": 379698, "bits_per_point": 34.661, "encode_mpts": 33.7, "decode_mpts": 66.5},
+      {"method": "pco", "bytes": 39532, "bits_per_point": 3.609, "encode_mpts": 27.4, "decode_mpts": 108.2},
+      {"method": "gorilla", "bytes": 373573, "bits_per_point": 34.102, "encode_mpts": 115.0, "decode_mpts": 115.2},
+      {"method": "chimp", "bytes": 359857, "bits_per_point": 32.850, "encode_mpts": 85.9, "decode_mpts": 89.5},
+      {"method": "chimp128", "bytes": 156556, "bits_per_point": 14.291, "encode_mpts": 101.9, "decode_mpts": 107.7},
+      {"method": "tsz auto", "bytes": 47743, "bits_per_point": 4.358, "encode_mpts": 27.2, "decode_mpts": 83.1}
+    ]},
+    {"name": "noaa-sf-water-level", "points": 73661, "csv_gz_bytes": 344256, "methods": [
+      {"method": "zstd", "bytes": 283081, "bits_per_point": 30.744, "encode_mpts": 21.0, "decode_mpts": 51.3},
+      {"method": "tsz crate", "bytes": 606317, "bits_per_point": 65.849, "encode_mpts": 34.4, "decode_mpts": 73.7},
+      {"method": "pco", "bytes": 59159, "bits_per_point": 6.425, "encode_mpts": 21.5, "decode_mpts": 109.2},
+      {"method": "gorilla", "bytes": 575245, "bits_per_point": 62.475, "encode_mpts": 129.1, "decode_mpts": 104.5},
+      {"method": "chimp", "bytes": 495610, "bits_per_point": 53.826, "encode_mpts": 76.1, "decode_mpts": 92.3},
+      {"method": "chimp128", "bytes": 314503, "bits_per_point": 34.157, "encode_mpts": 54.4, "decode_mpts": 69.1},
+      {"method": "tsz auto", "bytes": 76908, "bits_per_point": 8.353, "encode_mpts": 25.9, "decode_mpts": 91.0}
+    ]},
+    {"name": "noaa-sf-wind-speed", "points": 87637, "csv_gz_bytes": 343276, "methods": [
+      {"method": "zstd", "bytes": 295805, "bits_per_point": 27.003, "encode_mpts": 22.6, "decode_mpts": 46.2},
+      {"method": "tsz crate", "bytes": 680141, "bits_per_point": 62.087, "encode_mpts": 23.3, "decode_mpts": 53.2},
+      {"method": "pco", "bytes": 67440, "bits_per_point": 6.156, "encode_mpts": 26.7, "decode_mpts": 107.9},
+      {"method": "gorilla", "bytes": 679536, "bits_per_point": 62.032, "encode_mpts": 131.4, "decode_mpts": 97.2},
+      {"method": "chimp", "bytes": 541427, "bits_per_point": 49.425, "encode_mpts": 79.7, "decode_mpts": 72.8},
+      {"method": "chimp128", "bytes": 233458, "bits_per_point": 21.311, "encode_mpts": 66.0, "decode_mpts": 81.4},
+      {"method": "tsz auto", "bytes": 83795, "bits_per_point": 7.649, "encode_mpts": 26.4, "decode_mpts": 89.4}
+    ]},
+    {"name": "uci-power-active-2007", "points": 521669, "csv_gz_bytes": 2177004, "methods": [
+      {"method": "zstd", "bytes": 1486730, "bits_per_point": 22.800, "encode_mpts": 23.2, "decode_mpts": 46.5},
+      {"method": "tsz crate", "bytes": 3425789, "bits_per_point": 52.536, "encode_mpts": 21.8, "decode_mpts": 56.2},
+      {"method": "pco", "bytes": 440229, "bits_per_point": 6.751, "encode_mpts": 21.7, "decode_mpts": 113.3},
+      {"method": "gorilla", "bytes": 3394234, "bits_per_point": 52.052, "encode_mpts": 122.9, "decode_mpts": 96.3},
+      {"method": "chimp", "bytes": 2884355, "bits_per_point": 44.233, "encode_mpts": 74.7, "decode_mpts": 83.8},
+      {"method": "chimp128", "bytes": 1795511, "bits_per_point": 27.535, "encode_mpts": 64.9, "decode_mpts": 80.7},
+      {"method": "tsz auto", "bytes": 598814, "bits_per_point": 9.183, "encode_mpts": 25.2, "decode_mpts": 81.1}
+    ]},
+    {"name": "uci-power-voltage-2007", "points": 521669, "csv_gz_bytes": 2370263, "methods": [
+      {"method": "zstd", "bytes": 1750986, "bits_per_point": 26.852, "encode_mpts": 21.0, "decode_mpts": 47.4},
+      {"method": "tsz crate", "bytes": 3424069, "bits_per_point": 52.509, "encode_mpts": 29.3, "decode_mpts": 73.6},
+      {"method": "pco", "bytes": 558410, "bits_per_point": 8.563, "encode_mpts": 20.8, "decode_mpts": 111.8},
+      {"method": "gorilla", "bytes": 3418672, "bits_per_point": 52.427, "encode_mpts": 135.9, "decode_mpts": 127.4},
+      {"method": "chimp", "bytes": 3204160, "bits_per_point": 49.137, "encode_mpts": 67.0, "decode_mpts": 91.3},
+      {"method": "chimp128", "bytes": 1456432, "bits_per_point": 22.335, "encode_mpts": 58.9, "decode_mpts": 85.5},
+      {"method": "tsz auto", "bytes": 693137, "bits_per_point": 10.630, "encode_mpts": 24.8, "decode_mpts": 88.8}
+    ]},
+    {"name": "wikipedia-hourly-views", "points": 8784, "csv_gz_bytes": 61726, "methods": [
+      {"method": "zstd", "bytes": 52445, "bits_per_point": 47.764, "encode_mpts": 17.8, "decode_mpts": 37.4},
+      {"method": "tsz crate", "bytes": 31111, "bits_per_point": 28.334, "encode_mpts": 46.0, "decode_mpts": 100.0},
+      {"method": "pco", "bytes": 23303, "bits_per_point": 21.223, "encode_mpts": 7.2, "decode_mpts": 152.5},
+      {"method": "gorilla", "bytes": 31114, "bits_per_point": 28.337, "encode_mpts": 158.5, "decode_mpts": 145.5},
+      {"method": "chimp", "bytes": 35979, "bits_per_point": 32.768, "encode_mpts": 91.9, "decode_mpts": 94.8},
+      {"method": "chimp128", "bytes": 43664, "bits_per_point": 39.767, "encode_mpts": 76.3, "decode_mpts": 79.8},
+      {"method": "tsz auto", "bytes": 26042, "bits_per_point": 23.718, "encode_mpts": 21.3, "decode_mpts": 102.9}
+    ]}
+  ]
+}

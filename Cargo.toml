@@ -1,0 +1,26 @@
+[package]
+name = "tsz-codec"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Lossless time-series compression: Gorilla, Chimp, Chimp128, and per-block choice including a decimal codec"
+license = "MIT"
+repository = "https://github.com/ahmed-hashim-pro/tsz"
+readme = "README.md"
+keywords = ["compression", "time-series", "gorilla", "chimp", "metrics"]
+categories = ["compression", "encoding", "command-line-utilities"]
+exclude = ["data/", "docs/", "bench/", "fuzz/"]
+
+# No dependencies. The bit I/O and the codecs are the point of the crate, and
+# the comparison against other crates lives in bench/, its own package.
+[dependencies]
+
+[profile.test]
+opt-level = 2
+
+[profile.release]
+debug = 1
+
+[[bin]]
+name = "tsz"
+path = "src/main.rs"

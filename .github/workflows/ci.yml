@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain: ["1.74", stable]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ matrix.toolchain }}
+      - run: cargo test --locked
+
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets --locked -- -D warnings
+      - run: cd bench && cargo fmt --check && cargo clippy --locked -- -D warnings
+      - run: cd fuzz && cargo fmt --check
+
+  # The README's round-trip claim: a million adversarial series, every codec.
+  soak:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: TSZ_SOAK=1000000 cargo test --release --locked --test roundtrip soak -- --ignored
+
+  # A short coverage-guided run of both targets on every push.
+  fuzz:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@nightly
+      - run: cargo install cargo-fuzz --locked --version 0.13.2
+      - run: cd fuzz && cargo fuzz run -O decode -- -max_total_time=120 -rss_limit_mb=2048
+      - run: cd fuzz && cargo fuzz run -O roundtrip -- -max_total_time=120 -rss_limit_mb=2048
+
+  # Sizes are deterministic: the chart in docs/ must be what the code produces,
+  # and every compared crate must still round-trip every dataset.
+  bench-sizes:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cd bench && cargo run --release --locked -- --sizes-only --svg ../docs/bench.svg
+      - run: git diff --exit-code -- docs/bench.svg

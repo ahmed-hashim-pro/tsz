@@ -1,0 +1,19 @@
+[package]
+name = "tsz-bench"
+version = "0.0.0"
+edition = "2021"
+publish = false
+description = "Compression ratio and speed of tsz-codec against other crates, on the data in ../data"
+
+# Not part of the tsz-codec package: these dependencies are only for comparison.
+[workspace]
+
+[dependencies]
+tsz-codec = { path = ".." }
+gorilla = { package = "tsz", version = "=0.1.4" }
+pco = "=1.0.4"
+zstd = "=0.13.3"
+flate2 = "=1.1.5"
+
+[profile.release]
+debug = 1
