@@ -58,7 +58,7 @@ tsz inspect power.tsz            # blocks, codecs, bits per point
 tsz decode power.tsz | head -3
 tsz verify data/*.csv            # every codec, round-tripped bit for bit
 
-cargo test                       # 21 tests, about half a minute from cold
+cargo test                       # 21 tests, about 10 s from cold
 ```
 
 `tsz encode` reads one `timestamp,value` per line, from a file or `-` for
